@@ -27,6 +27,8 @@ spec:
         env:
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
+        - name: AWS_REGION
+          value: {{ .Values.pod.env.AWS_REGION | default "ap-northeast-1" | quote }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
         livenessProbe:
           failureThreshold: 5
