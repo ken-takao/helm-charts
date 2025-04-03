@@ -30,6 +30,8 @@ serviceInternal:
       targetPort: 4269
   type: ClusterIP
 config:
+  aws:
+    region: "ap-northeast-1"
   data: ""
   port: 8443
   status:
@@ -39,3 +41,9 @@ config:
   profile:
     port: 4269
 kubernetesClusterDomain: cluster.local
+
+# サービスアカウントの設定
+serviceAccount:
+  create: false
+  name: ""
+  annotations: {}

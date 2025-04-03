@@ -20,6 +20,9 @@ spec:
         service: fleet-telemetry
       {{- include "fleet-telemetry.selectorLabels" . | nindent 8 }}
     spec:
+      {{- if or .Values.serviceAccount.create .Values.serviceAccount.name }}
+      serviceAccountName: {{ .Values.serviceAccount.name | default (include "fleet-telemetry.fullname" .) }}
+      {{- end }}
       containers:
       - command:
         - /fleet-telemetry
@@ -28,7 +31,7 @@ spec:
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ quote .Values.kubernetesClusterDomain }}
         - name: AWS_REGION
-          value: {{ .Values.pod.env.AWS_REGION | default "ap-northeast-1" | quote }}
+          value: {{ .Values.config.aws.region | default "ap-northeast-1" | quote }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
         livenessProbe:
           failureThreshold: 5
