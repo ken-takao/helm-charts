@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  fleet-telemetry:
+  - apiVersion: v2
+    appVersion: 0.4.1
+    created: "2025-04-03T20:24:58.773226+09:00"
+    description: An Open Source Helm chart for fleet-telemetry
+    digest: b1b388dc3f97122b6faad875f08b653ea4cb8d5b292e457504d8c65d39a7473e
+    maintainers:
+    - name: nathwang
+    name: fleet-telemetry
+    type: application
+    urls:
+    - https://ken-takao.github.io/helm-charts/fleet-telemetry-0.1.1.tgz
+    version: 0.1.1
+generated: "2025-04-03T20:24:58.772714+09:00"
